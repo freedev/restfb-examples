@@ -16,7 +16,7 @@
         <url>https://github.com/restfb/restfb-examples/issues</url>
         <system>GitHub Issues</system>
     </issueManagement>
-
+    
     <licenses>
         <license>
             <name>MIT License</name>
@@ -54,20 +54,39 @@
         </developer>
     </developers>
 
-    <properties>
-        <access_token/>
-    </properties>
+  <properties>
+
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+
+    <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <project.resource.encoding>UTF-8</project.resource.encoding>
+    <access_token/>
+  </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.restfb</groupId>
             <artifactId>restfb</artifactId>
-            <version>1.18.1</version>
+            <version>1.33.0</version>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${maven-compiler-plugin.version}</version>
+          <configuration>
+            <source>${maven.compiler.source}</source>
+            <target>${maven.compiler.target}</target>
+            <compilerArgument>-parameters</compilerArgument>
+          </configuration>
+        </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
